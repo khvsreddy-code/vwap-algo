@@ -1,6 +1,0 @@
-fyers-apiv3
-streamlit>=1.37
-pandas
-numpy
-python-dotenv
-plotly>=5.24
