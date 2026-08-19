@@ -1,0 +1,5 @@
+fyers-apiv3
+streamlit>=1.52
+pandas
+numpy
+python-dotenv
