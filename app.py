@@ -3000,7 +3000,7 @@ def render_charts_page():
                     ]
             render_chart(ex, engine.selected_option["symbol"],
                          ltp=option_tick.get("ltp") if option_tick else engine.selected_option.get("ltp"),
-                         vwap=False, levels=lev, height=900, max_candles=CHART_CANDLE_LIMIT, fit_content=False, resolution=chart_timeframe)
+                         vwap=True, levels=lev, height=900, max_candles=CHART_CANDLE_LIMIT, fit_content=False, resolution=chart_timeframe)
 
         if show_nifty and show_option and has_option:
             left, right = st.columns(2, gap="small")
@@ -3795,7 +3795,7 @@ def live_dashboard():
             if not engine.history_df.empty:
                 if (engine.history_df["volume"] == 0).all():
                     st.warning("FYERS is returning zero volume for the signal instrument. A true volume VWAP cannot be calculated from this feed. If TradingView shows a VWAP on NIFTY, use a volume-bearing NIFTY futures symbol as the VWAP data source or verify the feed before live trading.")
-                st.dataframe(engine.history_df[[c for c in ["datetime","open","high","low","close","volume","ohlc4","vwap","atr"] if c in engine.history_df.columns]].tail(100), width="stretch", hide_index=True)
+                st.dataframe(engine.history_df[[c for c in ["datetime","open","high","low","close","volume","ohlc4","vwap","atr"] if c in engine.history_df.columns]].tail(100), width="stretch", hide_index=False)
 
         with tabs[4]:
             st.subheader("Paper trade history")
