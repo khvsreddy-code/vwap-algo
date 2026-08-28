@@ -3042,7 +3042,7 @@ def render_charts_page():
                     ]
             render_chart(ex, engine.selected_option["symbol"],
                          ltp=option_tick.get("ltp") if option_tick else engine.selected_option.get("ltp"),
-                         vwap=False, levels=lev, height=900, max_candles=CHART_CANDLE_LIMIT, fit_content=False, resolution=chart_timeframe)
+                         vwap=True, levels=lev, height=900, max_candles=CHART_CANDLE_LIMIT, fit_content=False, resolution=chart_timeframe)
 
         if show_nifty and show_option and has_option:
             left, right = st.columns(2, gap="small")
@@ -3757,7 +3757,7 @@ def live_dashboard():
                                 lev.append({"price":avg,"title":"Live position","color":"#f0b90b"})
                         except (TypeError, ValueError):
                             pass
-                render_chart(ex, engine.selected_option['symbol'], ltp=engine.last_execution_tick.get("ltp") if engine.last_execution_tick else engine.selected_option.get("ltp"), vwap=False, levels=lev, height=500, max_candles=CHART_CANDLE_LIMIT, fit_content=False)
+                render_chart(ex, engine.selected_option['symbol'], ltp=engine.last_execution_tick.get("ltp") if engine.last_execution_tick else engine.selected_option.get("ltp"), vwap=True, levels=lev, height=500, max_candles=CHART_CANDLE_LIMIT, fit_content=False)
 
 
         with tabs[0]:
