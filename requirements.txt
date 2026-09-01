@@ -1,0 +1,7 @@
+fyers-apiv3==3.1.16
+streamlit>=1.52
+pandas
+numpy
+python-dotenv
+
+supabase>=2.18.0
